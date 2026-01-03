@@ -1,0 +1,8 @@
+
+      <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="300" fill="#6B7280"/>
+        <text x="50%" y="45%" text-anchor="middle" fill="white" font-family="Arial" font-size="24">Tanpa Foto 3</text>
+        <text x="50%" y="55%" text-anchor="middle" fill="white" font-family="Arial" font-size="16">tanpa-foto</text>
+        <text x="50%" y="70%" text-anchor="middle" fill="white" font-family="Arial" font-size="14">Placeholder Image</text>
+      </svg>
+    
