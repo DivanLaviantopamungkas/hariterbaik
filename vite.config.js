@@ -1,29 +1,24 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "./",
-  css: {
-    postcss: "./postcss.config.js",
-  },
+  base: process.env.NODE_ENV === "production" ? "/" : "/",
   build: {
     outDir: "dist",
     assetsDir: "assets",
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name && assetInfo.name.endsWith(".css")) {
-            return "assets/[name]-[hash][extname]";
+          const info = assetInfo.name.split(".");
+          const extType = info[info.length - 1];
+          if (/\.(png|jpe?g|svg|gif|webp|ico)$/i.test(assetInfo.name)) {
+            return `assets/images/[name]-[hash][extname]`;
           }
-          return "assets/[name]-[hash][extname]";
+          return `assets/[ext]/[name]-[hash][extname]`;
         },
-        chunkFileNames: "assets/[name]-[hash].js",
-        entryFileNames: "assets/[name]-[hash].js",
       },
     },
-    cssCodeSplit: true,
   },
   server: {
     port: 3000,
-    open: true,
   },
 });
